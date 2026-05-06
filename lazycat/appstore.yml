@@ -9,7 +9,7 @@ screenshots:
   pc:
     - lazycat/screenshots/01-search.png
     - lazycat/screenshots/02-results.png
-    - lazycat/screenshots/03-grouped.png
+    - lazycat/screenshots/03-config.png
   mobile: []
 
 description:
