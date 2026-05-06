@@ -1,0 +1,83 @@
+package: cloud.lazycat.app.pansou-web
+version: ${VERSION}
+name: PanSou
+description: 高性能网盘资源搜索 — 聚合 TG 频道、搜索插件，自动分类网盘类型
+author: fish2018
+license: MIT
+homepage: https://github.com/microlazy-apps/lazy-pansou-web
+locales:
+  zh-CN:
+    name: PanSou
+    description: 自托管 PanSou 网盘搜索 —— 聚合 TG 频道与搜索插件，按网盘类型自动分类
+    usage: |
+      ## 关于 PanSou
+
+      PanSou 是高性能的网盘资源搜索服务，把上游的「前后端集成版」镜像直接重打包到懒猫商店。
+
+      - 聚合多个 Telegram 频道 + 80+ 搜索插件
+      - 自动识别 14 种网盘类型（百度 / 阿里云 / 夸克 / 115 / 天翼 / UC / PikPak / 迅雷 / 123 / 移动 / 磁力 / 电驴 …）
+      - 智能并发 + 二级缓存（内存 + 磁盘分片），秒级返回
+      - "尽快响应、持续处理" 的异步插件模式，慢源不会拖累整体响应
+
+      ## 使用
+
+      装好直接访问 `https://pansou.{你的微服域名}`，输入关键词即可。
+
+      搜索结果按网盘类型分组展示。结果中的链接点击会跳转到对应网盘页（多数需要登录该网盘账号）。
+
+      ## 数据持久化
+
+      `/lzcapp/var/data/` —— 缓存（默认 60 分钟 TTL）+ 日志。
+
+      备份就 tar 这个目录。第一次启动后缓存会自动重建。
+
+      ## 注意
+
+      - 若所在网络无法访问 Telegram，搜索结果会缺失 TG 源；建议在懒猫盒子上启用代理或仅依赖搜索插件
+      - 部分插件会触达境外站点，首次搜索响应可能较慢，缓存命中后秒级返回
+      - 本应用仅做**搜索聚合**，不存储任何资源；点击结果跳转到第三方网盘自行下载
+
+      ## 上游
+
+      上游后端: https://github.com/fish2018/pansou
+      上游前端: https://github.com/fish2018/pansou-web
+      本仓库（懒猫包装）: https://github.com/microlazy-apps/lazy-pansou-web
+  en: |
+    PanSou is a high-performance pan-cloud resource search service. This
+    wrapper repackages the upstream "frontend+backend bundle" OCI image into
+    the lazycat appstore.
+
+    - Aggregates multiple Telegram channels + 80+ search plugins
+    - Auto-classifies 14 pan-cloud types (Baidu / Aliyun / Quark / 115 /
+      Tianyi / UC / PikPak / Xunlei / 123 / China Mobile / magnet / ed2k / …)
+    - Smart concurrency + two-tier (in-memory + sharded disk) cache for
+      sub-second repeats
+    - "Respond fast, keep processing" async-plugin mode so slow sources do
+      not block overall response
+
+    ## Usage
+
+    Open `https://pansou.{your-box-domain}` after install and search.
+
+    Results are grouped by pan-cloud type. Clicking a link opens the third-
+    party pan-cloud page (most require an account).
+
+    ## Persistent storage
+
+    `/lzcapp/var/data/` — cache (60min TTL by default) + logs. Back up by
+    tarring this directory; the cache rebuilds itself on first miss.
+
+    ## Notes
+
+    - If the box cannot reach Telegram, TG-source results will be missing;
+      enable a proxy on the box or rely on search plugins.
+    - Some plugins hit overseas sites; first search may be slow until the
+      cache warms.
+    - This wrapper only performs search aggregation; it stores nothing.
+      Clicking a result jumps to a third-party pan-cloud page.
+
+    ## Upstream
+
+    Backend: https://github.com/fish2018/pansou
+    Frontend: https://github.com/fish2018/pansou-web
+    This wrapper repo: https://github.com/microlazy-apps/lazy-pansou-web

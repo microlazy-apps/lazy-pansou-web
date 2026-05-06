@@ -1,0 +1,45 @@
+application:
+  subdomain: pansou
+  upstreams:
+    - location: /
+      backend: http://main:80
+  public_path:
+    - /
+  health_check:
+    test_url: http://main:80/api/health
+    timeout: 5s
+    start_period: 30s
+
+services:
+  main:
+    image: ${LAZYCAT_IMAGE}
+    environment:
+      - TZ=Asia/Shanghai
+
+      # The pansou backend is started by the upstream image's start.sh on
+      # 127.0.0.1:8888; nginx fronts it on :80 and serves the Vue SPA.
+      - PANSOU_HOST=127.0.0.1
+      - PANSOU_PORT=8888
+
+      # Persist cache + logs into the lazycat data volume so they survive
+      # upgrades.
+      - CACHE_PATH=/app/data/cache
+      - LOG_PATH=/app/data/logs
+      - CACHE_ENABLED=true
+      - CACHE_TTL=60
+      - MAX_CONCURRENCY=200
+      - MAX_PAGES=30
+
+      # Health check tuning (used by the upstream watchdog inside the
+      # container, not the lazycat probe).
+      - HEALTH_CHECK_INTERVAL=30
+      - HEALTH_CHECK_TIMEOUT=10
+      - HEALTH_CHECK_RETRIES=3
+    binds:
+      - /lzcapp/var/data:/app/data
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:80/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s

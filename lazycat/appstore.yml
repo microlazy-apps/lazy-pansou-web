@@ -1,0 +1,56 @@
+source: https://github.com/fish2018/pansou-web
+source_author: fish2018
+is_original: false
+keywords: pansou,网盘,搜索,baidu,aliyun,quark,telegram,plugin,nginx,go,vue
+support_pc: true
+support_mobile: true
+
+screenshots:
+  pc:
+    - lazycat/screenshots/01-search.png
+    - lazycat/screenshots/02-results.png
+    - lazycat/screenshots/03-grouped.png
+  mobile: []
+
+description:
+  zh-CN: |
+    PanSou 是高性能的网盘资源搜索服务。把上游的前后端集成镜像（fish2018/pansou-web）
+    直接重打包到懒猫商店，开箱即用。
+
+    特性
+    - 聚合多个 Telegram 频道 + 80+ 搜索插件，统一搜索
+    - 自动识别 14 种网盘类型，按盘归类展示
+    - 智能并发 + 二级缓存（内存 + 磁盘分片），秒级响应
+    - "尽快响应，持续处理" 异步插件模式，慢源不阻塞
+    - 数据持久化到 /lzcapp/var/data，重启 / 升级不丢
+
+    依赖
+    - 若需要 TG 源，要求懒猫盒子能直连 Telegram（或本地代理）
+    - 网盘下载需要用户自己持有目标网盘账号
+
+    本应用仅做搜索聚合，不存储任何资源。
+
+    上游后端项目（MIT）: https://github.com/fish2018/pansou
+    上游前端镜像: https://github.com/fish2018/pansou-web
+    本仓库（懒猫包装）: https://github.com/microlazy-apps/lazy-pansou-web
+  en: |
+    PanSou is a high-performance pan-cloud resource search service. This
+    wrapper repackages the upstream frontend+backend bundle image
+    (fish2018/pansou-web) into the lazycat appstore.
+
+    Features
+    - Aggregates multiple Telegram channels + 80+ search plugins
+    - Auto-classifies 14 pan-cloud types and groups results by source
+    - Smart concurrency + two-tier (memory + sharded disk) cache
+    - "Respond fast, keep processing" async plugin mode
+    - Data persisted at /lzcapp/var/data; survives upgrades
+
+    Requires
+    - Direct (or proxied) Telegram access for TG-channel sources
+    - A pan-cloud account on the target service to actually download
+
+    Aggregation only — this app stores no third-party content.
+
+    Upstream backend (MIT): https://github.com/fish2018/pansou
+    Upstream frontend image: https://github.com/fish2018/pansou-web
+    This wrapper repo: https://github.com/microlazy-apps/lazy-pansou-web
