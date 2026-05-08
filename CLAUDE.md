@@ -2,6 +2,15 @@
 
 懒猫微服 wrapper for [fish2018/pansou-web](https://github.com/fish2018/pansou-web)。
 
+## Lazycat appstore identifiers
+
+- **package id**: `cloud.lazycat.app.pansou-web`
+- **app_id**: `5343` (recorded 2026-05-08)
+- **subdomain**: `pansou` → `https://pansou.<box-domain>`
+- **bootstrap workflow**: when re-running `bootstrap-app.yml` to
+  resubmit a fix, pass `app_id=5343` so the workflow skips
+  `/app/create` (which would 500 on duplicate package).
+
 ## 仓库结构
 
 ```
