@@ -3,7 +3,7 @@ source_author: fish2018
 is_original: false
 keywords: pansou,网盘,搜索,baidu,aliyun,quark,telegram,plugin,nginx,go,vue
 support_pc: true
-support_mobile: true
+support_mobile: false
 
 screenshots:
   pc:

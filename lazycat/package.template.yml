@@ -5,6 +5,11 @@ description: 高性能网盘资源搜索 — 聚合 TG 频道、搜索插件，�
 author: fish2018
 license: MIT
 homepage: https://github.com/microlazy-apps/lazy-pansou-web
+
+unsupported_platforms:
+  - ios
+  - android
+
 locales:
   zh-CN:
     name: PanSou
